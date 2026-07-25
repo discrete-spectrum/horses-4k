@@ -1,23 +1,4 @@
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-function formatDate(iso) {
-  const [y, m, d] = iso.split('-').map(Number);
-  return `${MONTHS[m - 1]} ${d}, ${y}`;
-}
-
-function formatTime(hhmm) {
-  const [h, m] = hhmm.split(':').map(Number);
-  const period = h >= 12 ? 'PM' : 'AM';
-  const hour12 = h % 12 === 0 ? 12 : h % 12;
-  return `${hour12}:${String(m).padStart(2, '0')} ${period}`;
-}
-
-function todayISO() {
-  const d = new Date();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${d.getFullYear()}-${m}-${day}`;
-}
+import { formatDate, formatTime, bucketShows, billSegments, eventJsonLd } from './shows-data.mjs';
 
 function appendLinkOrText(parent, text, url) {
   if (url) {
@@ -33,21 +14,11 @@ function appendLinkOrText(parent, text, url) {
 }
 
 function billFragment(show) {
-  if (!show.event && !show.bands.length) return null;
+  const segments = billSegments(show);
+  if (!segments) return null;
 
   const frag = document.createDocumentFragment();
-  if (show.event) frag.append(show.event);
-
-  if (show.bands.length) {
-    frag.append(show.event ? ' — with ' : 'with ');
-    show.bands.forEach((band, i) => {
-      if (i > 0) frag.append(i === show.bands.length - 1 ? ' and ' : ', ');
-      appendLinkOrText(frag, band.name, band.url);
-    });
-  }
-
-  if (show.note) frag.append(`, ${show.note}`);
-
+  segments.forEach(seg => appendLinkOrText(frag, seg.text, seg.url));
   return frag;
 }
 
@@ -108,28 +79,14 @@ function updateJsonLd(nextShow) {
     return;
   }
 
-  script.textContent = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'MusicEvent',
-    name: `Horses 4k at ${nextShow.venue}`,
-    startDate: nextShow.time ? `${nextShow.date}T${nextShow.time}:00` : nextShow.date,
-    performer: {
-      '@type': 'MusicGroup',
-      name: 'Horses 4k',
-      url: 'https://horses4k.rodeo'
-    },
-    location: {
-      '@type': 'MusicVenue',
-      name: nextShow.venue,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: nextShow.city,
-        addressRegion: nextShow.state,
-        addressCountry: 'US'
-      }
-    },
-    eventStatus: 'https://schema.org/EventScheduled'
-  }, null, 2);
+  script.textContent = JSON.stringify(eventJsonLd(nextShow), null, 2);
+}
+
+function todayISO() {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}-${m}-${day}`;
 }
 
 async function loadShows() {
@@ -140,12 +97,13 @@ async function loadShows() {
   const res = await fetch('/shows.json');
   const shows = await res.json();
 
-  const today = todayISO();
-  const upcoming = shows.filter(s => s.date >= today).sort((a, b) => a.date.localeCompare(b.date));
-  const past = shows.filter(s => s.date < today).sort((a, b) => b.date.localeCompare(a.date));
+  const { upcoming, past } = bucketShows(shows, todayISO());
 
-  upcoming.forEach(show => upcomingList.appendChild(renderShow(show, true)));
-  past.forEach(show => pastList.appendChild(renderShow(show, false)));
+  // shows.html may already contain build-time-rendered <li>s (see
+  // scripts/build-shows.mjs) — replaceChildren() re-renders on top instead
+  // of appending duplicates, using the visitor's actual local date.
+  upcomingList.replaceChildren(...upcoming.map(show => renderShow(show, true)));
+  pastList.replaceChildren(...past.map(show => renderShow(show, false)));
 
   const upcomingEmpty = document.getElementById('upcoming-empty');
   if (upcomingEmpty) upcomingEmpty.hidden = upcoming.length > 0;

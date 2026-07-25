@@ -31,8 +31,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history so scripts/build-shows.mjs can read each page's
+          # real last-modified date for sitemap.xml
+          fetch-depth: 0
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Pre-render shows.html and sitemap.xml
+        run: node scripts/build-shows.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
