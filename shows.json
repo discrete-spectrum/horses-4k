@@ -1,0 +1,178 @@
+[
+  {
+    "date": "2026-07-08",
+    "venue": "The Doghouse",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Lilac Heart", "url": null },
+      { "name": "Hazel Boy", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2026-05-29",
+    "venue": "Baxter’s Speakeasy",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Goodmorning Valentine", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2026-03-13",
+    "venue": "Matinee",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Van Goth (NYC)", "url": null },
+      { "name": "Dr. Fang and The Bats", "url": null },
+      { "name": "O.R.P.H.A.N.S.", "url": null },
+      { "name": "Side Part", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2026-02-07",
+    "venue": "Akron Art Museum",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": "Midwinter 2026, curated by CUSP",
+    "bands": [],
+    "note": null
+  },
+  {
+    "date": "2025-10-31",
+    "venue": "CAVE",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": "NOISE OF THE LIVING DEAD 3",
+    "bands": [
+      { "name": "KEM Bond", "url": null },
+      { "name": "Meat Dept.", "url": null }
+    ],
+    "note": "and others"
+  },
+  {
+    "date": "2025-10-09",
+    "venue": "The Beachland Tavern",
+    "venueUrl": null,
+    "city": "Cleveland",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Goodmorning Valentine", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2025-08-01",
+    "venue": "The Electric Company",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Lemon Quartet", "url": null },
+      { "name": "Stephan Haluska", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2025-06-25",
+    "venue": "Matinee",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Penultimate Gaze", "url": null },
+      { "name": "Bellysauce", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2025-04-09",
+    "venue": "Mistake By the Lake",
+    "venueUrl": null,
+    "city": "Cleveland",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Water is the Sun", "url": null },
+      { "name": "Perpetual Amnesia", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2025-03-20",
+    "venue": "Grog Shop",
+    "venueUrl": null,
+    "city": "Cleveland",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "The Magnavox’s", "url": null },
+      { "name": "Anteater II", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2025-03-01",
+    "venue": "Rubicon Cinema",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [],
+    "note": null
+  },
+  {
+    "date": "2025-01-18",
+    "venue": "CAVE",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": "Event Horizon series",
+    "bands": [
+      { "name": "Field of Hats", "url": null },
+      { "name": "Qix", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2024-11-26",
+    "venue": "The Rialto",
+    "venueUrl": null,
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Goodmorning Valentine", "url": null },
+      { "name": "Anya Van Rose", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2024-07-26",
+    "venue": "The Rialto",
+    "venueUrl": null,
+    "city": "Kenmore",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "Phantom Lease", "url": null },
+      { "name": "Goodmorning Valentine", "url": null }
+    ],
+    "note": null
+  }
+]

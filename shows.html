@@ -24,30 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicEvent",
-    "name": "Horses 4k at The Doghouse",
-    "startDate": "2026-07-01",
-    "performer": {
-      "@type": "MusicGroup",
-      "name": "Horses 4k",
-      "url": "https://horses4k.rodeo"
-    },
-    "location": {
-      "@type": "MusicVenue",
-      "name": "The Doghouse",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Akron",
-        "addressRegion": "OH",
-        "addressCountry": "US"
-      }
-    },
-    "eventStatus": "https://schema.org/EventScheduled"
-  }
-  </script>
+  <script type="application/ld+json" id="show-jsonld"></script>
 </head>
 <body>
   <header>
@@ -82,126 +59,14 @@
       <section class="shows-block" aria-label="Upcoming shows">
         <p class="shows-section-label">Upcoming</p>
         <h2 class="shows-section-title">On the Road</h2>
-        <ul class="show-list">
-          <li class="show">
-            <time class="show-date" datetime="2026-07-08">Jul 8, 2026</time>
-            <div>
-              <div class="show-venue">The Doghouse</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Lilac Heart and Hazel Boy</div>
-            </div>
-          </li>
-        </ul>
+        <p id="upcoming-empty" class="shows-empty" hidden>No upcoming shows &mdash; check back soon.</p>
+        <ul id="upcoming-shows" class="show-list"></ul>
       </section>
 
       <section class="shows-block" aria-label="Past shows">
         <p class="shows-section-label">Archive</p>
         <h2 class="shows-section-title">Past Shows</h2>
-        <ul class="show-list">
-          <li class="show past">
-            <time class="show-date" datetime="2026-05-29">May 29, 2026</time>
-            <div>
-              <div class="show-venue">Baxter&#8217;s Speakeasy</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Goodmorning Valentine</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2026-03-13">Mar 13, 2026</time>
-            <div>
-              <div class="show-venue">Matinee</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Van Goth (NYC), Dr. Fang and The Bats, O.R.P.H.A.N.S., Side Part</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2026-02-07">Feb 7, 2026</time>
-            <div>
-              <div class="show-venue">Akron Art Museum</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">Midwinter 2026, curated by CUSP</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-10-31">Oct 31, 2025</time>
-            <div>
-              <div class="show-venue">CAVE</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">NOISE OF THE LIVING DEAD 3 &mdash; with KEM Bond, Meat Dept., and others</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-10-09">Oct 9, 2025</time>
-            <div>
-              <div class="show-venue">The Beachland Tavern</div>
-              <div class="show-city">Cleveland, OH</div>
-              <div class="show-bill">with Goodmorning Valentine</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-08-01">Aug 1, 2025</time>
-            <div>
-              <div class="show-venue">The Electric Company</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Lemon Quartet, Stephan Haluska</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-06-25">Jun 25, 2025</time>
-            <div>
-              <div class="show-venue">Matinee</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Penultimate Gaze, Bellysauce</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-04-09">Apr 9, 2025</time>
-            <div>
-              <div class="show-venue">Mistake By the Lake</div>
-              <div class="show-city">Cleveland, OH</div>
-              <div class="show-bill">with Water is the Sun, Perpetual Amnesia</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-03-20">Mar 20, 2025</time>
-            <div>
-              <div class="show-venue">Grog Shop</div>
-              <div class="show-city">Cleveland, OH</div>
-              <div class="show-bill">with The Magnavox&#8217;s, Anteater II</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-03-01">Mar 1, 2025</time>
-            <div>
-              <div class="show-venue">Rubicon Cinema</div>
-              <div class="show-city">Akron, OH</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2025-01-18">Jan 18, 2025</time>
-            <div>
-              <div class="show-venue">CAVE</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">Event Horizon series &mdash; with Field of Hats, Qix</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2024-11-26">Nov 26, 2024</time>
-            <div>
-              <div class="show-venue">The Rialto</div>
-              <div class="show-city">Akron, OH</div>
-              <div class="show-bill">with Goodmorning Valentine, Anya Van Rose</div>
-            </div>
-          </li>
-          <li class="show past">
-            <time class="show-date" datetime="2024-07-26">Jul 26, 2024</time>
-            <div>
-              <div class="show-venue">The Rialto</div>
-              <div class="show-city">Kenmore, OH</div>
-              <div class="show-bill">with Phantom Lease, Goodmorning Valentine</div>
-            </div>
-          </li>
-        </ul>
+        <ul id="past-shows" class="show-list"></ul>
       </section>
     </div>
   </main>
@@ -221,5 +86,6 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script src="/js/shows.js"></script>
 </body>
 </html>

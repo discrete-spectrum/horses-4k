@@ -20,16 +20,37 @@ No framework, no build tool, no dependencies. Four standalone HTML pages share o
 
 - `css/style.css` — all styles for the entire site
 - `js/main.js` — nav scroll behaviour and mobile drawer toggle only
+- `js/shows.js` — fetches `shows.json` and renders the show lists on `shows.html` (see "Updating shows" below)
 - `fonts/Gontserrat-Light` — hero title font (self-hosted); body uses Google Fonts (Cormorant Garamond + DM Sans)
 - `images/web/` — web-optimised images used in HTML; `images/full/` are originals, not referenced by the site
 
 CSS uses custom properties defined on `:root` for the entire colour palette and layout constants. All type is set in three families: Gontserrat (hero title only), Cormorant Garamond (display/serif), DM Sans (body/UI).
 
-Each page is self-contained with its own `<head>` — title, meta description, Open Graph, Twitter card, canonical URL, and a `MusicGroup` (or `MusicAlbum`) JSON-LD block must be kept consistent when content changes.
+Each page is self-contained with its own `<head>` — title, meta description, Open Graph, Twitter card, canonical URL, and a `MusicGroup` (or `MusicAlbum`) JSON-LD block must be kept consistent when content changes. The exception is `shows.html`'s `MusicEvent` JSON-LD block (`<script id="show-jsonld">`), which `js/shows.js` generates at runtime from the next upcoming show — leave it empty in the HTML source.
 
 ## Updating shows
 
-Edit `shows.html`. Upcoming shows go in the first `<section>` as `<li class="show">`. Once a show has passed, move it to the Archive section and change the class to `class="show past"`.
+Add, edit, or remove shows in `shows.json` — `shows.html` has no hardcoded show data. Each entry:
+
+```json
+{
+  "date": "2026-08-15",
+  "venue": "The Doghouse",
+  "venueUrl": "https://example.com/tickets",
+  "city": "Akron",
+  "state": "OH",
+  "event": null,
+  "bands": [
+    { "name": "Lilac Heart", "url": "https://lilacheart.bandcamp.com" },
+    { "name": "Hazel Boy", "url": null }
+  ],
+  "note": null
+}
+```
+
+- `js/shows.js` buckets each show into Upcoming or Archive by comparing `date` to today automatically — nothing to move by hand.
+- `venueUrl` only renders as a link while the show is upcoming; once it moves to Archive the venue name reverts to plain text (avoids linking to stale ticket/event pages). `bands[].url` links stay live in both sections.
+- `event` is an optional headline before the band list (e.g. a festival/series name, like `"Midwinter 2026, curated by CUSP"`). `note` is optional trailing text after the band list (e.g. `"and others"`). Omit fields that don't apply by setting them to `null` or `[]`.
 
 ## Adding a release
 

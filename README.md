@@ -24,9 +24,11 @@ Push to `main` on GitHub. Pages builds automatically via the `CNAME` file (`hors
 index.html          Home
 music.html          Discography + embeds
 about.html          Bio + member links
-shows.html          Upcoming + past shows
+shows.html          Upcoming + past shows (rendered from shows.json)
+shows.json          Show data — edit this to add/update shows
 css/style.css       All styles
 js/main.js          Nav scroll + mobile drawer
+js/shows.js         Renders shows.json into shows.html
 fonts/              Gontserrat-Light (hero title)
 images/             Originals
 images/web/         Web-optimized versions (use these in HTML)
@@ -37,7 +39,7 @@ robots.txt
 
 ## Updating shows
 
-Edit `shows.html`. Upcoming shows go in the first `<section>` (no `past` class on the `<li>`). Move them to the Archive section and add `class="show past"` once they've passed.
+Edit `shows.json` — no HTML editing needed. Add a show object with a `date` (`YYYY-MM-DD`); `js/shows.js` automatically sorts it into Upcoming or Archive by comparing it to today's date. Each show can also have a `venueUrl` (only linked while upcoming) and per-band `url`s in `bands[]` (linked forever). See the "Updating shows" section in `CLAUDE.md` for the full field reference.
 
 ## Adding a release
 

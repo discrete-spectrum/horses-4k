@@ -215,16 +215,7 @@ p { text-align: justify; hyphens: auto; }
   letter-spacing: 0.04em;
   color: #fff;
   line-height: 1;
-  margin-bottom: 1.25rem;
-}
-
-.hero-sub {
-  font-size: 0.76rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--text-muted);
   margin-bottom: 3.5rem;
-  text-align: center;
 }
 
 .hero-cta {
@@ -735,6 +726,11 @@ p { text-align: justify; hyphens: auto; }
   margin-bottom: 2.25rem;
 }
 
+.shows-empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 .show-list { list-style: none; }
 
 .show {
@@ -764,6 +760,15 @@ p { text-align: justify; hyphens: auto; }
 }
 
 .show.past .show-venue { color: var(--text); opacity: 0.7; }
+
+.show-venue a,
+.show-bill a {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.show-venue a:hover,
+.show-bill a:hover { border-color: currentColor; }
 
 .show-city {
   font-size: 0.7rem;
