@@ -1,5 +1,60 @@
 [
   {
+    "date": "2026-08-29",
+    "time": "14:00",
+    "venue": "Visible Voice Books",
+    "venueUrl": "https://www.visiblevoicebooks.com/calendar-of-events/saturday-sessions-horses-4k",
+    "city": "Cleveland",
+    "state": "OH",
+    "event": "Sunday Sessions",
+    "bands": [],
+    "note": null
+  },
+  {
+    "date": "2026-08-10",
+    "time": "20:00",
+    "venue": "Elastic Arts",
+    "venueUrl": "https://elasticarts.org/events/horses-4k-desert-liminal-sam-wagster-solo",
+    "city": "Chicago",
+    "state": "IL",
+    "event": null,
+    "bands": [
+      { "name": "Desert Liminal", "url": "https://www.instagram.com/desertliminal/" },
+      { "name": "Sam Wagster", "url": "https://samwagster.bandcamp.com/" }
+    ],
+    "note": null
+  },
+  {
+    "date": "2026-08-08",
+    "time": "19:00",
+    "venue": "Musica",
+    "venueUrl": "https://dice.fm/event/92rew9-people-sleep-horses4k-otal-brian-barr-sound-fabric-8th-aug-musica-akron-tickets?lng=en-US",
+    "city": "Akron",
+    "state": "OH",
+    "event": null,
+    "bands": [
+      { "name": "People Sleep", "url": "https://peoplesleep.bandcamp.com/" },
+      { "name": "Otal", "url": "https://otal.bandcamp.com/" },
+      { "name": "Brian Barr", "url": "https://www.instagram.com/brianpaulbarr_sound/" },
+      { "name": "Sound Fabric", "url": null }
+    ],
+    "note": null
+  },
+  {
+    "date": "2026-07-31",
+    "time": "18:00",
+    "venue": "Oxbow Orchard",
+    "venueUrl": "https://www.oxboworchard.com/event-details-registration/final-fridays-oxbow-flowerfest",
+    "city": "Valley View",
+    "state": "OH",
+    "event": "FLOWERFEST",
+    "bands": [
+      { "name": "Luke Schneider", "url": "https://lukeschneider.bandcamp.com/" },
+      { "name": "12 O’clock Tribe", "url": "https://www.facebook.com/12oclocktribe/" }
+    ],
+    "note": null
+  },
+  {
     "date": "2026-07-08",
     "time": null,
     "venue": "The Doghouse",
