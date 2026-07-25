@@ -5,6 +5,13 @@ function formatDate(iso) {
   return `${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
+function formatTime(hhmm) {
+  const [h, m] = hhmm.split(':').map(Number);
+  const period = h >= 12 ? 'PM' : 'AM';
+  const hour12 = h % 12 === 0 ? 12 : h % 12;
+  return `${hour12}:${String(m).padStart(2, '0')} ${period}`;
+}
+
 function todayISO() {
   const d = new Date();
   const m = String(d.getMonth() + 1).padStart(2, '0');
@@ -48,11 +55,23 @@ function renderShow(show, isUpcoming) {
   const li = document.createElement('li');
   li.className = isUpcoming ? 'show' : 'show past';
 
+  const when = document.createElement('div');
+  when.className = 'show-when';
+
   const time = document.createElement('time');
   time.className = 'show-date';
-  time.dateTime = show.date;
+  time.dateTime = show.time ? `${show.date}T${show.time}` : show.date;
   time.textContent = formatDate(show.date);
-  li.appendChild(time);
+  when.appendChild(time);
+
+  if (show.time) {
+    const timeDiv = document.createElement('div');
+    timeDiv.className = 'show-time';
+    timeDiv.textContent = formatTime(show.time);
+    when.appendChild(timeDiv);
+  }
+
+  li.appendChild(when);
 
   const info = document.createElement('div');
 
@@ -93,7 +112,7 @@ function updateJsonLd(nextShow) {
     '@context': 'https://schema.org',
     '@type': 'MusicEvent',
     name: `Horses 4k at ${nextShow.venue}`,
-    startDate: nextShow.date,
+    startDate: nextShow.time ? `${nextShow.date}T${nextShow.time}:00` : nextShow.date,
     performer: {
       '@type': 'MusicGroup',
       name: 'Horses 4k',

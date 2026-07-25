@@ -35,6 +35,7 @@ Add, edit, or remove shows in `shows.json` — `shows.html` has no hardcoded sho
 ```json
 {
   "date": "2026-08-15",
+  "time": "20:00",
   "venue": "The Doghouse",
   "venueUrl": "https://example.com/tickets",
   "city": "Akron",
@@ -49,6 +50,7 @@ Add, edit, or remove shows in `shows.json` — `shows.html` has no hardcoded sho
 ```
 
 - `js/shows.js` buckets each show into Upcoming or Archive by comparing `date` to today automatically — nothing to move by hand.
+- `time` is optional 24-hour `"HH:MM"`. When set, it's shown under the date (e.g. "8:00 PM") and folded into the JSON-LD `startDate` as a full datetime. Leave it `null` if unknown (most past shows are, since it wasn't tracked before).
 - `venueUrl` only renders as a link while the show is upcoming; once it moves to Archive the venue name reverts to plain text (avoids linking to stale ticket/event pages). `bands[].url` links stay live in both sections.
 - `event` is an optional headline before the band list (e.g. a festival/series name, like `"Midwinter 2026, curated by CUSP"`). `note` is optional trailing text after the band list (e.g. `"and others"`). Omit fields that don't apply by setting them to `null` or `[]`.
 

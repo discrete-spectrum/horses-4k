@@ -753,6 +753,13 @@ p { text-align: justify; hyphens: auto; }
 
 .show.past .show-date { color: var(--text-muted); }
 
+.show-time {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
 .show-venue {
   font-size: 0.92rem;
   color: var(--bright);

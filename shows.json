@@ -1,6 +1,7 @@
 [
   {
     "date": "2026-07-08",
+    "time": null,
     "venue": "The Doghouse",
     "venueUrl": null,
     "city": "Akron",
@@ -14,6 +15,7 @@
   },
   {
     "date": "2026-05-29",
+    "time": null,
     "venue": "Baxter’s Speakeasy",
     "venueUrl": null,
     "city": "Akron",
@@ -26,6 +28,7 @@
   },
   {
     "date": "2026-03-13",
+    "time": null,
     "venue": "Matinee",
     "venueUrl": null,
     "city": "Akron",
@@ -41,6 +44,7 @@
   },
   {
     "date": "2026-02-07",
+    "time": null,
     "venue": "Akron Art Museum",
     "venueUrl": null,
     "city": "Akron",
@@ -51,6 +55,7 @@
   },
   {
     "date": "2025-10-31",
+    "time": null,
     "venue": "CAVE",
     "venueUrl": null,
     "city": "Akron",
@@ -64,6 +69,7 @@
   },
   {
     "date": "2025-10-09",
+    "time": null,
     "venue": "The Beachland Tavern",
     "venueUrl": null,
     "city": "Cleveland",
@@ -76,6 +82,7 @@
   },
   {
     "date": "2025-08-01",
+    "time": null,
     "venue": "The Electric Company",
     "venueUrl": null,
     "city": "Akron",
@@ -89,6 +96,7 @@
   },
   {
     "date": "2025-06-25",
+    "time": null,
     "venue": "Matinee",
     "venueUrl": null,
     "city": "Akron",
@@ -102,6 +110,7 @@
   },
   {
     "date": "2025-04-09",
+    "time": null,
     "venue": "Mistake By the Lake",
     "venueUrl": null,
     "city": "Cleveland",
@@ -115,6 +124,7 @@
   },
   {
     "date": "2025-03-20",
+    "time": null,
     "venue": "Grog Shop",
     "venueUrl": null,
     "city": "Cleveland",
@@ -128,6 +138,7 @@
   },
   {
     "date": "2025-03-01",
+    "time": null,
     "venue": "Rubicon Cinema",
     "venueUrl": null,
     "city": "Akron",
@@ -138,6 +149,7 @@
   },
   {
     "date": "2025-01-18",
+    "time": null,
     "venue": "CAVE",
     "venueUrl": null,
     "city": "Akron",
@@ -151,6 +163,7 @@
   },
   {
     "date": "2024-11-26",
+    "time": null,
     "venue": "The Rialto",
     "venueUrl": null,
     "city": "Akron",
@@ -164,6 +177,7 @@
   },
   {
     "date": "2024-07-26",
+    "time": null,
     "venue": "The Rialto",
     "venueUrl": null,
     "city": "Kenmore",
