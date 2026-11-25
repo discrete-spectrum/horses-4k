@@ -39,8 +39,10 @@ jobs:
         uses: actions/configure-pages@v6
       - name: Pre-render shows.html and sitemap.xml
         run: node scripts/build-shows.mjs
+      # v5 uploads fine but deploy-pages can't find the artifact in this repo
+      # (works in jacobtrombetta.github.io); v3 is known to work here.
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
