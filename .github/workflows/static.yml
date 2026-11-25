@@ -22,11 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Upload and deploy run in separate jobs on purpose: when they run back to
+  # back in one job, deploy-pages can intermittently fail to find the
+  # artifact (https://github.com/actions/deploy-pages/issues/451).
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,13 +38,19 @@ jobs:
         uses: actions/configure-pages@v6
       - name: Pre-render shows.html and sitemap.xml
         run: node scripts/build-shows.mjs
-      # v5 uploads fine but deploy-pages can't find the artifact in this repo
-      # (works in jacobtrombetta.github.io); v3 is known to work here.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
