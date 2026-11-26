@@ -134,6 +134,15 @@ function buildSitemap(today) {
 }
 
 const shows = JSON.parse(readFileSync(path('shows.json'), 'utf8'));
+
+// Shows are sorted and split into upcoming/past by comparing date text, so
+// dates must be zero-padded (2027-01-23, not 2027-1-23) and times 24-hour
+// HH:MM. Fail the deploy rather than publish a list in the wrong order.
+const bad = shows.filter(s => !/^\d{4}-\d{2}-\d{2}$/.test(s.date) || (s.time && !/^\d{2}:\d{2}$/.test(s.time)));
+if (bad.length) {
+  for (const s of bad) console.error(`shows.json: ${s.venue}: date must be YYYY-MM-DD and time HH:MM (got "${s.date}" "${s.time}")`);
+  process.exit(1);
+}
 const today = new Date().toISOString().slice(0, 10);
 
 buildShowsHtml(shows, today);

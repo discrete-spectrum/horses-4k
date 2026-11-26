@@ -94,7 +94,10 @@ async function loadShows() {
   const pastList = document.getElementById('past-shows');
   if (!upcomingList || !pastList) return;
 
-  const res = await fetch('/shows.json');
+  // no-cache: always check with the server for a newer copy. Without it the
+  // browser may reuse shows.json for up to 10 minutes after a deploy (GitHub
+  // Pages sends max-age=600) and overwrite the fresh built-in list with old data.
+  const res = await fetch('/shows.json', { cache: 'no-cache' });
   const shows = await res.json();
 
   const { upcoming, past } = bucketShows(shows, todayISO());
