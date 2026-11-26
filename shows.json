@@ -1,5 +1,30 @@
 [
   {
+    "date": "2027-1-23",
+    "time": "17:00",
+    "venue": "Happy Dog",
+    "venueUrl": "",
+    "city": "Cleveland",
+    "state": "OH",
+    "event": "UnderDog Test Kitchen",
+    "bands": [],
+    "note": null
+  },
+  {
+    "date": "2026-11-29",
+    "time": "17:00",
+    "venue": "The Southgate House",
+    "venueUrl": "https://www.southgatehouse.com/tm-event/western-echoes-ft-koltay-horses4k-luke-schneider/",
+    "city": "Newport",
+    "state": "KY",
+    "event": "Western Echos",
+    "bands": [
+      { "name": "Luke Schneider", "url": "https://lukeschneider.bandcamp.com/" },
+      { "name": "Koltay", "url": "https://www.instagram.com/koltay/reels/" }
+    ],
+    "note": null
+  },
+  {
     "date": "2026-09-17",
     "time": "20:00",
     "venue": "Little Rose Tavern",
