@@ -115,9 +115,9 @@ function gitDate(...relPaths) {
 function buildSitemap(today) {
   const pages = [
     { loc: '/', files: ['index.html'] },
-    { loc: '/music.html', files: ['music.html'] },
-    { loc: '/about.html', files: ['about.html'] },
-    { loc: '/shows.html', files: ['shows.html', 'shows.json'] }
+    { loc: '/music', files: ['music.html'] },
+    { loc: '/about', files: ['about.html'] },
+    { loc: '/shows', files: ['shows.html', 'shows.json'] }
   ];
 
   let sitemap = readFileSync(path('sitemap.xml'), 'utf8');
