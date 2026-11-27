@@ -5,10 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Run locally
 
 ```bash
-python3 -m http.server 8080
+node scripts/serve.mjs
 ```
 
-Open http://localhost:8080. No build step — changes are reflected on page reload.
+Open http://localhost:8080 (`PORT=` to change). No build step — changes are reflected on page reload. Use this rather than `python3 -m http.server`: links use clean URLs (`/shows`, not `/shows.html`), which GitHub Pages and `serve.mjs` resolve but python's server doesn't. Keep links, canonicals and `sitemap.xml` extensionless.
 
 ## Deploy
 
@@ -50,6 +50,8 @@ Add, edit, or remove shows in `shows.json` — `shows.html` has no hardcoded sho
 }
 ```
 
+- `date` must be zero-padded `YYYY-MM-DD` (`2027-01-23`, not `2027-1-23`): shows are sorted by string comparison, and `scripts/build-shows.mjs` fails the deploy otherwise.
+- `js/shows.js` fetches `shows.json` with `cache: 'no-cache'`; keep that, or browsers reuse a stale copy for up to 10 min after a deploy (Pages sends `max-age=600`) and overwrite the pre-rendered list.
 - `js/shows.js` buckets each show into Upcoming or Archive by comparing `date` to today automatically — nothing to move by hand.
 - `time` is optional 24-hour `"HH:MM"`. When set, it's shown under the date (e.g. "8:00 PM") and folded into the JSON-LD `startDate` as a full datetime. Leave it `null` if unknown (most past shows are, since it wasn't tracked before).
 - `venueUrl` only renders as a link while the show is upcoming; once it moves to Archive the venue name reverts to plain text (avoids linking to stale ticket/event pages). `bands[].url` links stay live in both sections.

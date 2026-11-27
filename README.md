@@ -7,16 +7,23 @@ Static site for [Horses 4K](https://horses4k.rodeo) — ambient country from Cle
 From the project root:
 
 ```bash
-python3 -m http.server 8080
+node scripts/serve.mjs
 ```
 
-Then open **http://localhost:8080** in a browser. Stop it with `Ctrl+C`.
+Then open **http://localhost:8080** in a browser. Stop it with `Ctrl+C`. Edits
+show up when you reload the page.
 
-Any other static server works too (e.g. `npx serve .` if you have Node).
+This serves the site the way GitHub Pages does, so the short menu links
+(`/shows`, `/about`, `/music`) work. `python3 -m http.server` does **not**
+understand those, and clicking the menu there gives "not found".
+
+The show list on your computer comes straight from `shows.json` in the browser.
+The live site also has the shows built into the page for search engines,
+which happens only during the deploy.
 
 ## Deploy
 
-Push to `main` on GitHub. Pages builds automatically via the `CNAME` file (`horses4k.rodeo`).
+Push to `main` on GitHub. A GitHub Action builds and deploys it in about a minute (Actions tab shows progress). If `shows.json` has a date that isn't `YYYY-MM-DD` (e.g. `2027-1-23` instead of `2027-01-23`), the deploy stops with a message naming the show and the live site keeps its previous version.
 
 ## Project structure
 
